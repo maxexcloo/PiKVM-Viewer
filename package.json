@@ -1,0 +1,25 @@
+{
+  "author": "Max Schaefer",
+  "build": {
+    "appId": "com.excloo.pikvm-viewer",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "icon.icns"
+    }
+  },
+  "description": "",
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "pikvm-viewer",
+  "productName": "PiKVM",
+  "scripts": {
+    "build": "electron-builder --mac",
+    "start": "electron ."
+  },
+  "version": "1.0.0"
+}
