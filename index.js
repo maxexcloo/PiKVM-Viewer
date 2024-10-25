@@ -1,15 +1,11 @@
 const { app, BrowserWindow } = require("electron");
 
-function main() {
+function showMainWindow() {
   const window = new BrowserWindow({
     width: 1920,
     height: 1080,
-    resizable: false,
     title: "PiKVM",
     useContentSize: true,
-    webPreferences: {
-      contextIsolation: true
-    }
   });
 
   window.loadURL("https://pikvm/").catch((error) => {
@@ -23,6 +19,12 @@ function main() {
 
   window.on("page-title-updated", (event) => {
     event.preventDefault();
+  });
+
+  window.on('resize', (event) => {
+    if (!window.isFullScreen()) {
+      window.setSize(1920, 1080);
+    }
   });
 
   window.webContents.on("certificate-error", (event, url, error, certificate, callback) => {
@@ -56,4 +58,4 @@ app.on("window-all-closed", () => {
   app.quit();
 });
 
-app.whenReady().then(main);
+app.whenReady().then(showMainWindow);
