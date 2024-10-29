@@ -23,7 +23,7 @@ function showMainWindow() {
 
   window.on('resize', (event) => {
     if (!window.isFullScreen()) {
-      window.setSize(1920, 1080);
+      window.setContentSize(1920, 1080);
     }
   });
 
